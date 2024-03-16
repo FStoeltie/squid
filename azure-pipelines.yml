@@ -12,7 +12,8 @@ pool:
 steps:
 - bash: ls 
 - bash: $pwd
-- bash: sudo apt install automake -y & sudo apt install build-essential libtool -y & sudo apt install libtool -y
+- bash: sudo apt install automake -y & sudo apt install build-essential libtool -y & sudo apt install libtool -y & sudo apt install libtool-bin -y
+- bash: autoreconf --install
 - bash: automake
 - script: |
     ./configure --prefix=/usr/local/squid
