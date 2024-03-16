@@ -17,7 +17,9 @@ steps:
   displayName: Run autoreconf
 - bash: automake
   displayName: Run automake
-    
+- script: |
+    ./configure --prefix=/usr/local/squid
+
 - script: |
     make all
   displayName: make - build project
