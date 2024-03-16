@@ -12,7 +12,7 @@ pool:
 steps:
 - bash: ls 
 - bash: $pwd
-- bash: apt install automake -y & apt install -build-tools libtool -y & apt install libtool -y
+- bash: sudo apt install automake -y & apt install -build-tools libtool -y & apt install libtool -y
 - bash: automake
 - script: |
     ./configure --prefix=/usr/local/squid
