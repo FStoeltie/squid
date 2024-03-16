@@ -12,6 +12,7 @@ pool:
 steps:
 - bash: ls 
 - bash: $pwd
+- bash: automake
 - script: |
     ./configure --prefix=/usr/local/squid
     
