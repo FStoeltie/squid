@@ -10,6 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+    
 - script: |
-    make
+    ./configure --prefix=/usr/local/squid
+    make all
   displayName: 'make'
