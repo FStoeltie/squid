@@ -10,6 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- bash: ls 
+- bash: $pwd
 - script: |
     ./configure --prefix=/usr/local/squid
     
