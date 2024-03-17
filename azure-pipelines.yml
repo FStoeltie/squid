@@ -26,5 +26,5 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    targetPath: '$pwd'
     artifactName: drop
