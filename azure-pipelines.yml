@@ -13,6 +13,7 @@ steps:
   - bash: sudo mkdir -p /usr/local/squid
   - bash: sudo ls -l /usr/local
   - bash: sudo chmod -R +rwx /usr/local/
+  - bash: sudo chown -R $USER /usr/local
   - bash: touch /usr/local/squid/test.txt
   - bash: echo 'test' > /usr/local/squid/test.txt
 # - bash: sudo apt install automake -y & sudo apt install build-essential libtool -y & sudo apt install libtool -y & sudo apt install libtool-bin -y
