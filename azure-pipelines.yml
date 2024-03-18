@@ -17,6 +17,7 @@ steps:
   displayName: Run autoreconf
 - bash: automake
   displayName: Run automake
+- bash: mkdir squid-proxy
 - script: |
     ./configure --prefix=$(pwd)/squid-proxy
 
@@ -26,7 +27,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/squid-proxy'
+    SourceFolder: $(pwd)/squid-proxy
     targetFolder: '$(Build.ArtifactStagingDirectory)'    
 
 - task: PublishBuildArtifacts@1    
