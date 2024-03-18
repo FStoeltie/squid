@@ -11,6 +11,7 @@ pool:
 
 steps:
   - bash: sudo mkdir -p /usr/local/squid
+  - bash: sudo ls -l /usr/local
 # - bash: sudo apt install automake -y & sudo apt install build-essential libtool -y & sudo apt install libtool -y & sudo apt install libtool-bin -y
 #   displayName: Install requirements
 
