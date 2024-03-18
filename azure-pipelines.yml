@@ -10,33 +10,35 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - bash: sudo mkdir -p /usr/local/squid
-  - bash: sudo chmod -R +rwx /usr/local/squid
-  - bash: sudo chown -R $USER /usr/local/squid
-  - bash: sudo apt install automake -y & sudo apt install build-essential libtool -y & sudo apt install libtool -y & sudo apt install libtool-bin -y
-    displayName: Install requirements
+  #- bash: sudo mkdir -p /usr/local/squid
+  #- bash: sudo chmod -R +rwx /usr/local/squid
+  #- bash: sudo chown -R $USER /usr/local/squid
+  - bash: sudo cat /proc/cpuinfo
+  #- bash: sudo apt install automake -y & sudo apt install build-essential libtool -y & sudo apt install libtool -y & sudo apt install libtool-bin -y
+  #  displayName: Install requirements
+  
 
-  - bash: autoreconf --install
-    displayName: Run autoreconf
-  - bash: automake
-    displayName: Run automake
-  - bash: mkdir squid-proxy
-  - script: |
-      ./configure --prefix='$(LOCATION)'
+  # - bash: autoreconf --install
+  #   displayName: Run autoreconf
+  # - bash: automake
+  #   displayName: Run automake
+  # - bash: mkdir squid-proxy
+  # - script: |
+  #     ./configure --prefix='$(LOCATION)'
 
-  - script: |
-      make all
-    displayName: make - build project
+  # - script: |
+  #     make all
+  #   displayName: make - build project
 
-  - script: |
-      make install
-    displayName: make - install project in squid-proxy
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: '$(LOCATION)'
-      targetFolder: '$(Build.ArtifactStagingDirectory)'    
+  # - script: |
+  #     make install
+  #   displayName: make - install project in squid-proxy
+  # - task: CopyFiles@2
+  #   inputs:
+  #     SourceFolder: '$(LOCATION)'
+  #     targetFolder: '$(Build.ArtifactStagingDirectory)'    
 
-  - task: PublishBuildArtifacts@1    
-    displayName: 'Publish Artifact: drop'
-    inputs:
-      PathtoPublish: '$(build.artifactstagingdirectory)'
+  # - task: PublishBuildArtifacts@1    
+  #   displayName: 'Publish Artifact: drop'
+  #   inputs:
+  #     PathtoPublish: '$(build.artifactstagingdirectory)'
