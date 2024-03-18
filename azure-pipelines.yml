@@ -10,11 +10,14 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  #- bash: sudo mkdir -p /usr/local/squid
-  #- bash: sudo chmod -R +rwx /usr/local/squid
-  #- bash: sudo chown -R $USER /usr/local/squid
   - bash: sudo cat /proc/cpuinfo
-  #- bash: sudo apt install automake -y & sudo apt install build-essential libtool -y & sudo apt install libtool -y & sudo apt install libtool-bin -y
+  - bash: which g++
+  - bash: g++ -v
+  # - bash: sudo mkdir -p /usr/local/squid
+  # - bash: sudo chmod -R +rwx /usr/local/squid
+  # - bash: sudo chown -R $USER /usr/local/squid
+  
+  # - bash: sudo apt install automake -y & sudo apt install build-essential libtool -y & sudo apt install libtool -y & sudo apt install libtool-bin -y
   #  displayName: Install requirements
   
 
@@ -24,7 +27,7 @@ steps:
   #   displayName: Run automake
   # - bash: mkdir squid-proxy
   # - script: |
-  #     ./configure --prefix='$(LOCATION)'
+  #     ./configure  --build=x86_64-pc-linux-gnu --host=m68k-coff --prefix='$(LOCATION)'
 
   # - script: |
   #     make all
