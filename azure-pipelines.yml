@@ -19,7 +19,7 @@ steps:
   displayName: Run automake
 - bash: mkdir squid-proxy
 - script: |
-    ./configure --prefix=$(pwd)/squid-proxy
+    ./configure --prefix='$(LOCATION)'
 
 - script: |
     make all
@@ -30,7 +30,7 @@ steps:
   displayName: make - install project in squid-proxy
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/squid-proxy'
+    SourceFolder: '$(LOCATION)'
     targetFolder: '$(Build.ArtifactStagingDirectory)'    
 
 - task: PublishBuildArtifacts@1    
