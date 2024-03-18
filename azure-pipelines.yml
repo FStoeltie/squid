@@ -27,7 +27,6 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: $(pwd)/squid-proxy
     targetFolder: '$(Build.ArtifactStagingDirectory)'    
 
 - task: PublishBuildArtifacts@1    
