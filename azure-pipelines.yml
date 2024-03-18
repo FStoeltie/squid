@@ -18,7 +18,7 @@ steps:
 - bash: automake
   displayName: Run automake
 - script: |
-    ./configure --prefix=/usr/local/squid
+    ./configure --prefix=$(pwd)/squid-proxy
 
 - script: |
     make all
@@ -26,6 +26,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/squid-proxy'
     targetFolder: '$(Build.ArtifactStagingDirectory)'    
 
 - task: PublishBuildArtifacts@1    
