@@ -10,9 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - bash: sudo cat /proc/cpuinfo
-  - bash: which g++
-  - bash: g++ -v
+  # - bash: sudo cat /proc/cpuinfo
+  # - bash: which g++
+  # - bash: g++ -v
   - bash: sudo mkdir -p /usr/local/squid
   - bash: sudo chmod -R +rwx /usr/local/squid
   - bash: sudo chown -R $USER /usr/local/squid
@@ -34,10 +34,15 @@ steps:
   - script: |
       make install
     displayName: make - install project in squid-proxy
+
+  - script: |
+      cp -rf '$(CONFIG)' '$(LOCATION)'/etc
+    displayName: copy config to etc
+
   - task: CopyFiles@2
     inputs:
       SourceFolder: '$(LOCATION)'
-      targetFolder: '$(Build.ArtifactStagingDirectory)'    
+      targetFolder: '$(Build.ArtifactStagingDirectory)'
 
   - task: PublishBuildArtifacts@1    
     displayName: 'Publish Artifact: drop'
